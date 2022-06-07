@@ -72,8 +72,7 @@ Sample URL for the REST API for backend technologies is
 * **Sign in:**
   * Sign in will take user id and password, on successful authentication go to the dashboard of the user else show the error messages and allow user to re-login
 * **Search medicine:**
-
-User must able to search medicine by uses or disease
+  * User must able to search medicine by uses or disease
 
 1. **Select medicine:**
     * User must able to add medicine to the cart
