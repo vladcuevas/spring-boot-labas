@@ -1,8 +1,52 @@
 # spring-boot-labs
 
-## SQL Server Configuration
+## H2 Configuration
 
-Once Docker is installed, just execute the below commands in powershell:
+For the purpose of this assignment, H2 will be used, for that we must follow the below steps:
+
+### Add Maven Dependency
+
+This dependency must be included in the pom.xml file, we can find other dependencies there related Spring Boot.
+
+```xml
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+```
+
+More information on how to add dependencies for a Maven project can be found in the below link:
+
+[Adding dependencies to other modules
+](https://www.ibm.com/docs/en/wasdtfe?topic=dependencies-adding-other-modules)
+
+### Database Configuration
+
+In the application.property file, we must include the below configurations.
+
+```text
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+```
+
+### Database Operations
+
+A lot of documentation about persistence can be found [here](https://www.baeldung.com/persistence-with-spring-series).
+
+What is important is that we must create a file called data.sql in the src/main/resources directory and add our insert statements for the H2 database, Spring Boot should take care of creating the table based in the model for the Entity, then will execute the insert statements from the data.sql file.
+
+**This is a good way to seed the database for testing or initialization purposes.**
+
+### SQL Server and Docker
+
+### SQL Server Configuration
+
+Once Docker is installed, just execute the below commands in Powershell:
 
 ### Pull Image
 
@@ -20,11 +64,11 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=D3veLoperp@ss" `
 
 ```
 
-Once SQL server is up and running, we can connect with user SA, and in localhost, after that we need to create our database
+Once SQL server is up and running, we can connect with user SA in localhost, after that we need to create our database
 
 ### Create the database
 
-In SQL Server Management Studio is super simple, better to create that way that adding the unnecesary code here, which is 114 lines
+In SQL Server Management Studio is super simple, better to create that way that adding the unnecessary code here, which is 114 lines
 With clicks is easy following the steps from below URL:
 
 [How to create a new database in Microsoft SQL Server](https://support.mailessentials.gfi.com/hc/en-us/articles/360015116400-How-to-create-a-new-database-in-Microsoft-SQL-Server)
@@ -46,10 +90,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Employee](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[name] [nvarchar](50) NOT NULL,
-	[last_name] [nvarchar](50) NOT NULL,
-	[badge_number] [int] NOT NULL
+ [id] [int] IDENTITY(1,1) NOT NULL,
+ [name] [nvarchar](50) NOT NULL,
+ [last_name] [nvarchar](50) NOT NULL,
+ [badge_number] [int] NOT NULL
 ) ON [PRIMARY]
 GO
 ```
@@ -58,7 +102,7 @@ After that we can insert some examples to get present something with the GET req
 
 ## Assignment
 
-Pick a data model like employee, user, etc. and 
+Pick a data model like employee, user, etc. and
 create a RESTful API from scratch to provide
 
 * GET
@@ -68,7 +112,7 @@ create a RESTful API from scratch to provide
 
 ## Code
 
-Just download or clone the code, use your favority editor, this one was coded with VSCode
+Just download or clone the code, use your favorite editor, this one was coded with VSCode
 
 ## Run
 
@@ -76,20 +120,30 @@ Run the project and test the below links:
 
 ## GET ALL
 
+```PowerShell
 curl -v localhost:8080/employees
+```
 
 ## GET
 
+```PowerShell
 curl -v localhost:8080/employees/3
+```
 
 ## POST
 
+```PowerShell
 curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name":"Menga", "lastName":"Nito", "badgeNumber":12358}'
+```
 
 ## PUT
 
+```PowerShell
 curl -X PUT localhost:8080/employees/3 -H 'Content-type:application/json' -d '{"name":"Menga", "lastName":"Nito", "badgeNumber":12359}'
+```
 
 ## DELETE
 
+```PowerShell
 curl -X DELETE localhost:8080/employees/3
+```
