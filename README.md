@@ -102,13 +102,7 @@ After that we can insert some examples to get present something with the GET req
 
 ## Assignment
 
-Pick a data model like employee, user, etc. and
-create a RESTful API from scratch to provide
-
-* GET
-* POST
-* DELETE
-* PUT APIs
+[Click here to get all the details from this assignment](project-01.md)
 
 ## Code
 
@@ -116,34 +110,34 @@ Just download or clone the code, use your favorite editor, this one was coded wi
 
 ## Run
 
-Run the project and test the below links:
+Run the project with Spring Boot Dashboard plugging from VSCode that will do the hard work and test the below links:
 
 ## GET ALL
 
 ```PowerShell
-curl -v localhost:8080/employees
+curl -v localhost:8080/medicines
 ```
 
 ## GET
 
 ```PowerShell
-curl -v localhost:8080/employees/3
+curl -v localhost:8080/medicines/3
 ```
 
 ## POST
 
 ```PowerShell
-curl -X POST localhost:8080/employees -H 'Content-type:application/json' -d '{"name":"Menga", "lastName":"Nito", "badgeNumber":12358}'
+curl -X POST localhost:8080/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
 ```
 
 ## PUT
 
 ```PowerShell
-curl -X PUT localhost:8080/employees/3 -H 'Content-type:application/json' -d '{"name":"Menga", "lastName":"Nito", "badgeNumber":12359}'
+curl -X PUT localhost:8080/medicines/3 -H 'Content-type:application/json' -d '{"""name""":"""Amlodipina""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
 ```
 
 ## DELETE
 
 ```PowerShell
-curl -X DELETE localhost:8080/employees/3
+curl -X DELETE localhost:8080/medicines/3
 ```

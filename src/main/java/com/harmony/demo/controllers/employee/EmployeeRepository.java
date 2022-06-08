@@ -1,4 +1,4 @@
-package com.harmony.demo.controllers;
+package com.harmony.demo.controllers.employee;
 
 import com.harmony.demo.model.Employee;
 

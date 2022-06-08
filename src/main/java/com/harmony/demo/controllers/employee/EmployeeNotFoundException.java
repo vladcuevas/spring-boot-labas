@@ -1,4 +1,4 @@
-package com.harmony.demo.controllers;
+package com.harmony.demo.controllers.employee;
 
 public class EmployeeNotFoundException extends RuntimeException{
     EmployeeNotFoundException(Integer id) {

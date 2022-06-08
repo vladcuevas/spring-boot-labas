@@ -1,4 +1,4 @@
-package com.harmony.demo.controllers;
+package com.harmony.demo.controllers.employee;
 
 import java.net.URI;
 import java.util.List;
