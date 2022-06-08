@@ -42,6 +42,49 @@ What is important is that we must create a file called data.sql in the src/main/
 
 **This is a good way to seed the database for testing or initialization purposes.**
 
+## Assignment
+
+[Click here to get all the details from this assignment](project-01.md)
+
+## Code
+
+Just download or clone the code, use your favorite editor, this one was coded with VSCode
+
+## Run
+
+Run the project with Spring Boot Dashboard plugging from VSCode that will do the hard work and test the below links:
+
+## GET ALL
+
+```PowerShell
+curl -v localhost:8080/medicines
+```
+
+## GET
+
+```PowerShell
+curl -v localhost:8080/medicines/3
+```
+
+## POST
+
+```PowerShell
+curl -X POST localhost:8080/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+```
+
+## PUT
+
+```PowerShell
+curl -X PUT localhost:8080/medicines/3 -H 'Content-type:application/json' -d '{"""name""":"""Amlodipina""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+```
+
+## DELETE
+
+```PowerShell
+curl -X DELETE localhost:8080/medicines/3
+```
+
+
 ### SQL Server and Docker
 
 ### SQL Server Configuration
@@ -99,45 +142,3 @@ GO
 ```
 
 After that we can insert some examples to get present something with the GET request, which normally is the fist request that is coded.
-
-## Assignment
-
-[Click here to get all the details from this assignment](project-01.md)
-
-## Code
-
-Just download or clone the code, use your favorite editor, this one was coded with VSCode
-
-## Run
-
-Run the project with Spring Boot Dashboard plugging from VSCode that will do the hard work and test the below links:
-
-## GET ALL
-
-```PowerShell
-curl -v localhost:8080/medicines
-```
-
-## GET
-
-```PowerShell
-curl -v localhost:8080/medicines/3
-```
-
-## POST
-
-```PowerShell
-curl -X POST localhost:8080/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
-```
-
-## PUT
-
-```PowerShell
-curl -X PUT localhost:8080/medicines/3 -H 'Content-type:application/json' -d '{"""name""":"""Amlodipina""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
-```
-
-## DELETE
-
-```PowerShell
-curl -X DELETE localhost:8080/medicines/3
-```
