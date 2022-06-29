@@ -25,3 +25,19 @@ INSERT INTO employee (id, name, last_name, badge_number)
     VALUES (3, 'Fulanito', 'Campos', 12347);
 INSERT INTO employee (id, name, last_name, badge_number) 
     VALUES (4, 'Daniel', 'Vergara', 12348);
+
+--USERS
+
+insert into user
+(active, address, dob, email, first_name, last_name, password, phone_number, roles, user_name)
+values
+(
+   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'pass', '555-5555' ,'ADMIN', 'admin'
+);
+
+insert into user
+(active, address, dob, email, first_name, last_name, password, phone_number, roles, user_name)
+values
+(
+   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'pass', '555-5555' ,'USER', 'user'
+);

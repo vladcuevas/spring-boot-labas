@@ -65,7 +65,6 @@ Sample URL for the REST API for backend technologies is
 
 **1\. Sign up:**
 
-* Admin can view the reports that are ordered by user
 * User can signup entering details like firstname, lastname, email, password, dob, phone no, address and user id should be auto-generated
 * Once user registers, user should able to see the auto-generated id using that user can sign in
 * Once user registers there should be some default amount to purchase items like 1000.

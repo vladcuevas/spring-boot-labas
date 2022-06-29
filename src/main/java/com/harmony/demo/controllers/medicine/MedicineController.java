@@ -28,12 +28,12 @@ public class MedicineController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @GetMapping("/medicines")
+    @GetMapping("/api/admin/medicines")
     List<Medicine> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/medicines")
+    @PostMapping("/api/admin/medicines")
     public ResponseEntity<Object> createMedicine(@RequestBody Medicine newMedicine) {
         Medicine savedMedicine = repository.save(newMedicine);
 
@@ -45,19 +45,18 @@ public class MedicineController {
 
     // Single item
 
-    @GetMapping("/medicines/{id}")
+    @GetMapping("/api/admin/medicines/{id}")
     Medicine one(@PathVariable Long id) {
 
         return repository.findById(id)
                 .orElseThrow(() -> new MedicineNotFoundException(id));
     }
 
-    @PutMapping("/medicines/{id}")
+    @PutMapping("/api/admin/medicines/{id}")
     Medicine replaceMedicine(@RequestBody Medicine newMedicine, @PathVariable Long id) {
 
         return repository.findById(id)
                 .map(medicine -> {
-                    medicine.setName(newMedicine.getName());
                     medicine.setName(newMedicine.getName());
                     medicine.setCompanyName(newMedicine.getCompanyName());
                     medicine.setPrice(newMedicine.getPrice());
@@ -71,7 +70,7 @@ public class MedicineController {
                 });
     }
 
-    @DeleteMapping("/medicines/{id}")
+    @DeleteMapping("/api/admin/medicines/{id}")
     void deleteMedicine(@PathVariable Long id) {
         repository.deleteById(id);
     }
