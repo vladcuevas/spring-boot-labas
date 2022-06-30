@@ -1,28 +1,28 @@
 package com.fsdprogram.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+    @Autowired
+    UserDetailsService userDetailsService;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        final String AUTHENTICATION_TYPE = "JPA";
         // Set your configuration on the auth object
 
-        //type of authentication
-        auth.inMemoryAuthentication()
-        .withUser("user")
-        .password("pass")
-        .roles("USER")
-        .and()
-        .withUser("admin")
-        .password("pass")
-        .roles("ADMIN");
+        if (AUTHENTICATION_TYPE.equals("JPA")) {
+            auth.userDetailsService(userDetailsService);
+        }
+        
     }
 
     @Bean
@@ -33,14 +33,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-        .antMatchers("/api/admin").hasRole("ADMIN")
-        .antMatchers("/api").hasAnyRole("USER", "ADMIN")
-        .antMatchers("/", "static/css", "static/js").permitAll()
+        .antMatchers("/api/admin/").hasAuthority("ADMIN")
+        .antMatchers("/api/admin/*").hasAuthority("ADMIN")
+        .antMatchers("/api/admin/**").hasAuthority("ADMIN")
+        .antMatchers("/api/*").hasAnyAuthority("ADMIN", "USER")
         .and().formLogin();
 
-        http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
-        .and().csrf().ignoringAntMatchers("/h2-console/**")
-        .and().headers().frameOptions().sameOrigin();
+        // http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
+        // .and().csrf().ignoringAntMatchers("/h2-console/**")
+        // .and().headers().frameOptions().sameOrigin();
     }
 
     

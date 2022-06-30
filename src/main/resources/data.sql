@@ -39,12 +39,12 @@ insert into user (
 )
 values
 (
-   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'pass', '555-5555' ,'ADMIN', 'admin'
+   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'admin', '555-5555' ,'ADMIN', 'admin'
 );
 
 insert into user
 (active, address, dob, email, first_name, last_name, password, phone_number, roles, user_name)
 values
 (
-   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'pass', '555-5555' ,'USER', 'user'
+   1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'user', '555-5555' ,'USER', 'user'
 );
