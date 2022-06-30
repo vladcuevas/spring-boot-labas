@@ -57,19 +57,19 @@ Run the project with Spring Boot Dashboard plugging from VSCode that will do the
 ## GET ALL
 
 ```PowerShell
-curl -v localhost:8080/medicines
+curl -i --user "admin:admin" localhost:8080/api/admin/medicines
 ```
 
 ## GET
 
 ```PowerShell
-curl -v localhost:8080/medicines/3
+curl -i --user "admin:admin" localhost:8080/api/admin/medicines/3
 ```
 
 ## POST
 
 ```PowerShell
-curl -X POST localhost:8080/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+curl -i --user "admin:admin" -X POST localhost:8080/api/admin/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
 ```
 
 ## PUT

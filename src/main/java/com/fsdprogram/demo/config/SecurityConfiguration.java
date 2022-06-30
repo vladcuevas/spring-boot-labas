@@ -37,11 +37,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         .antMatchers("/api/admin/*").hasAuthority("ADMIN")
         .antMatchers("/api/admin/**").hasAuthority("ADMIN")
         .antMatchers("/api/*").hasAnyAuthority("ADMIN", "USER")
-        .and().formLogin();
+        .and()
+          .httpBasic()
+        .and().cors().and().csrf().disable()
+        .formLogin().disable();
 
-        // http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
-        // .and().csrf().ignoringAntMatchers("/h2-console/**")
-        // .and().headers().frameOptions().sameOrigin();
+        http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
+        .and().headers().frameOptions().sameOrigin();
+
+        // http
+        //     .logout()
+        //     .logoutUrl("/perform_logout")
+        //     .deleteCookies("JSESSIONID")
+        //     .clearAuthentication(true)
+        //     .invalidateHttpSession(true);
     }
 
     

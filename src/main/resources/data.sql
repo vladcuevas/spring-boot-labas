@@ -1,22 +1,22 @@
 INSERT INTO medicine (
         id, name, company_name, price, uses, expiration_date
     ) 
-    VALUES (1, 'Simvastatina', 'Company1', 5.55, 6, '2023-12-31');
+    VALUES (1, 'Simvastatina', 'Company1', 5.55, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', '2023-12-31');
 
 INSERT INTO medicine (
         id, name, company_name, price, uses, expiration_date
     ) 
-    VALUES (2, 'Aspirina', 'Company2', 1.23, 12, '2024-12-31');
+    VALUES (2, 'Aspirina', 'Company2', 1.23, 'Sed non augue et leo interdum congue', '2024-12-31');
 
 INSERT INTO medicine (
         id, name, company_name, price, uses, expiration_date
     ) 
-    VALUES (3, 'Omeprazol', 'Company3', 7.55, 7, '2025-12-31');
+    VALUES (3, 'Omeprazol', 'Company3', 7.55, 'omnis iste natus error sit voluptatem accusantium', '2025-12-31');
 
 INSERT INTO medicine (
         id, name, company_name, price, uses, expiration_date
     ) 
-    VALUES (4, 'Lexotiroxina sódica', 'Company4', 6.55, 8, '2026-12-31');
+    VALUES (4, 'Lexotiroxina sódica', 'Company4', 6.55, 'At vero eos et accusamus et iusto odio dignissimos', '2026-12-31');
 
 
 --Employee things, not necessary for this assignment but useful for test

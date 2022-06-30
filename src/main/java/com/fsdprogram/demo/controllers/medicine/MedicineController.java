@@ -47,9 +47,18 @@ public class MedicineController {
 
     @GetMapping("/api/admin/medicines/{id}")
     Medicine one(@PathVariable Long id) {
-
         return repository.findById(id)
                 .orElseThrow(() -> new MedicineNotFoundException(id));
+    }
+
+    @GetMapping("/api/user/medicines/uses/{uses}")
+    public List<Medicine> findMedicinesByUses(@PathVariable("uses") String uses) {
+        return repository.findByUsesContaining(uses);
+    }
+
+    @GetMapping("/api/user/medicines/name/{name}")
+    public List<Medicine> findMedicinesByName(@PathVariable String name) {
+        return repository.findByName(name);
     }
 
     @PutMapping("/api/admin/medicines/{id}")

@@ -28,12 +28,12 @@ public class UserController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @GetMapping("/admin/user")
+    @GetMapping("/api/admin/user")
     List<User> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/user")
+    @PostMapping("/api/user")
     public ResponseEntity<Object> createUser(@RequestBody User newUser) {
         User savedUser = repository.save(newUser);
 
@@ -45,14 +45,14 @@ public class UserController {
 
     // Single item
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/api/user/{id}")
     User one(@PathVariable Long id) {
 
         return repository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/api/user/{id}")
     User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
 
         return repository.findById(id)
@@ -72,7 +72,7 @@ public class UserController {
                 });
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/api/admin/user/{id}")
     void deleteUser(@PathVariable Long id) {
         repository.deleteById(id);
     }

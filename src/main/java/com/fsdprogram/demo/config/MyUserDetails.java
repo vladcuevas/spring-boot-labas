@@ -58,4 +58,11 @@ public @Data class MyUserDetails implements UserDetails{
     public boolean isEnabled() {
         return active;
     }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    
 }
