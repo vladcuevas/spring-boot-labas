@@ -5,7 +5,7 @@ public class MedicineNotFoundException extends RuntimeException{
         super("Could not find medicine " + id);
       }
 
-    MedicineNotFoundException(String uses) {
-        super("Could not find medicine for " + uses);
+    MedicineNotFoundException(String disease) {
+        super("Could not find medicine for " + disease);
       }
 }

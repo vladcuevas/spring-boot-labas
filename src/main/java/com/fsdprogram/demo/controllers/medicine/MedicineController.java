@@ -51,9 +51,15 @@ public class MedicineController {
                 .orElseThrow(() -> new MedicineNotFoundException(id));
     }
 
-    @GetMapping("/api/user/medicines/uses/{uses}")
-    public List<Medicine> findMedicinesByUses(@PathVariable("uses") String uses) {
-        return repository.findByUsesContaining(uses);
+    @GetMapping("/api/user/medicines/{id}")
+    Medicine getMedicineUser(@PathVariable Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new MedicineNotFoundException(id));
+    }
+
+    @GetMapping("/api/user/medicines/disease/{disease}")
+    List<Medicine> findMedicinesByDisease(@PathVariable("disease") String disease) {
+        return repository.findByDiseaseContaining(disease);
     }
 
     @GetMapping("/api/user/medicines/name/{name}")
@@ -69,7 +75,7 @@ public class MedicineController {
                     medicine.setName(newMedicine.getName());
                     medicine.setCompanyName(newMedicine.getCompanyName());
                     medicine.setPrice(newMedicine.getPrice());
-                    medicine.setUses(newMedicine.getUses());
+                    medicine.setDisease(newMedicine.getDisease());
                     medicine.setExpirationDate(newMedicine.getExpirationDate());
                     return repository.save(medicine);
                 })

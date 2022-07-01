@@ -1,5 +1,7 @@
 package com.fsdprogram.demo.model;
 
+import lombok.Data;
+
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,7 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class Medicine {
+public @Data class Medicine {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -24,46 +26,8 @@ public class Medicine {
     @Column(nullable = false)
     private BigDecimal price;
     @Column(nullable = false)
-    private String uses;
+    private String disease;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     Date expirationDate;
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getCompanyName() {
-        return companyName;
-    }
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-    public BigDecimal getPrice() {
-        return price;
-    }
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-    public String getUses() {
-        return uses;
-    }
-    public void setUses(String uses) {
-        this.uses = uses;
-    }
-    public Date getExpirationDate() {
-        return expirationDate;
-    }
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-    
 }

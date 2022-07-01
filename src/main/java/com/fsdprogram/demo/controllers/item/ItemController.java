@@ -28,12 +28,12 @@ public class ItemController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @GetMapping("/item")
+    @GetMapping("/api/user/item")
     List<Item> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/item")
+    @PostMapping("/api/user/item")
     public ResponseEntity<Object> createItem(@RequestBody Item newItem) {
         Item savedItem = repository.save(newItem);
 
@@ -45,14 +45,14 @@ public class ItemController {
 
     // Single item
 
-    @GetMapping("/item/{id}")
+    @GetMapping("/api/user/item/{id}")
     Item one(@PathVariable Long id) {
 
         return repository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException(id));
     }
 
-    @PutMapping("/item/{id}")
+    @PutMapping("/api/user/item/{id}")
     Item replaceItem(@RequestBody Item newItem, @PathVariable Long id) {
 
         return repository.findById(id)
@@ -66,7 +66,7 @@ public class ItemController {
                 });
     }
 
-    @DeleteMapping("/item/{id}")
+    @DeleteMapping("/api/user/item/{id}")
     void deleteItem(@PathVariable Long id) {
         repository.deleteById(id);
     }

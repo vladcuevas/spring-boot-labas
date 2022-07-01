@@ -69,13 +69,13 @@ curl -i --user "admin:admin" localhost:8080/api/admin/medicines/3
 ## POST
 
 ```PowerShell
-curl -i --user "admin:admin" -X POST localhost:8080/api/admin/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+curl -i --user "admin:admin" -X POST localhost:8080/api/admin/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """disease""":8, """expirationDate""":"""2022-08-08"""}'
 ```
 
 ## PUT
 
 ```PowerShell
-curl -X PUT localhost:8080/medicines/3 -H 'Content-type:application/json' -d '{"""name""":"""Amlodipina""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+curl -X PUT localhost:8080/medicines/3 -H 'Content-type:application/json' -d '{"""name""":"""Amlodipina""", """companyName""":"""Company5""", """price""":7.89, """disease""":8, """expirationDate""":"""2022-08-08"""}'
 ```
 
 ## DELETE

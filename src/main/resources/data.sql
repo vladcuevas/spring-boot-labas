@@ -1,20 +1,20 @@
 INSERT INTO medicine (
-        id, name, company_name, price, uses, expiration_date
+        id, name, company_name, price, disease, expiration_date
     ) 
     VALUES (1, 'Simvastatina', 'Company1', 5.55, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', '2023-12-31');
 
 INSERT INTO medicine (
-        id, name, company_name, price, uses, expiration_date
+        id, name, company_name, price, disease, expiration_date
     ) 
     VALUES (2, 'Aspirina', 'Company2', 1.23, 'Sed non augue et leo interdum congue', '2024-12-31');
 
 INSERT INTO medicine (
-        id, name, company_name, price, uses, expiration_date
+        id, name, company_name, price, disease, expiration_date
     ) 
     VALUES (3, 'Omeprazol', 'Company3', 7.55, 'omnis iste natus error sit voluptatem accusantium', '2025-12-31');
 
 INSERT INTO medicine (
-        id, name, company_name, price, uses, expiration_date
+        id, name, company_name, price, disease, expiration_date
     ) 
     VALUES (4, 'Lexotiroxina sódica', 'Company4', 6.55, 'At vero eos et accusamus et iusto odio dignissimos', '2026-12-31');
 
@@ -47,4 +47,11 @@ insert into user
 values
 (
    1, 'ST50, Blvd, Panama', DATE '1981-09-17', 'user@Domain.com', 'Administrator', 'Last Name', 'user', '555-5555' ,'USER', 'user'
+);
+
+insert into item
+(quantity, medicine_id)
+values
+(
+   2, 1
 );

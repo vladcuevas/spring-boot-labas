@@ -45,7 +45,7 @@ Sample URL for the REST API for backend technologies is
     * Admin can add the new medicine with details like medicine name, company name, price, quantity, uses and expire date with the auto-generated medicine id and etc if necessary
 
         ```PowerShell
-        curl -i --user "admin:admin" -X POST localhost:8080/api/admin/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """uses""":8, """expirationDate""":"""2022-08-08"""}'
+        curl -i --user "admin:admin" -X POST localhost:8080/api/admin/medicines -H 'Content-type:application/json' -d '{"""name""":"""Ramipril""", """companyName""":"""Company5""", """price""":7.89, """disease""":8, """expirationDate""":"""2022-08-08"""}'
         ```
 
 3. **Update medicine**
@@ -56,7 +56,7 @@ Sample URL for the REST API for backend technologies is
     curl --location --request PUT 'http://127.0.0.1:8080/api/admin/medicines/7' \
     --header 'Content-type: application/json' \
     --header 'Cookie: JSESSIONID=6306DDF817FF1F0782917FB2D923361F' \
-    --data-raw '{"name":"Amlodipina", "companyName":"Company6f", "price":10.99, "uses":1, "expirationDate":"2022-09-08"}'
+    --data-raw '{"name":"Amlodipina", "companyName":"Company6f", "price":10.99, "disease":1, "expirationDate":"2022-09-08"}'
     ```
 
 4. **Delete medicine**
@@ -126,30 +126,62 @@ Sample URL for the REST API for backend technologies is
   * User must able to search medicine by uses or disease
   Example:
     ```PowerShell
-    curl --location --request GET 'http://127.0.0.1:8080/api/admin/medicines/uses/ailment' \
+    curl --location --request GET 'http://127.0.0.1:8080/api/user/medicines/disease/Lorem' \
     --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
-    --header 'Cookie: JSESSIONID=AC0C67D8E14735DD89C9F830C63120CB'
+    --header 'Cookie: JSESSIONID=63C26CCD5120D5701988AF259613FC33'
     ```
 1. **Select medicine:**
     * User must able to add medicine to the cart
+    ```PowerShell
+    curl --location --request GET 'http://127.0.0.1:8080/api/user/medicines/3' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --header 'Cookie: JSESSIONID=63C26CCD5120D5701988AF259613FC33'
+    ```
 2. **Delete items:**
     * User must able to delete medicine from the cart
+    curl --location --request DELETE 'http://127.0.0.1:8080/api/user/item/1' \
+    --header 'Cookie: JSESSIONID=63C26CCD5120D5701988AF259613FC33' \
+    --data-raw ''
 3. **Update items:**
     * User can update the quantities
+    ```PowerShell
+    curl --location --request PUT 'http://127.0.0.1:8080/api/user/item/2' \
+    --header 'Content-type: application/json' \
+    --header 'Cookie: JSESSIONID=63C26CCD5120D5701988AF259613FC33' \
+    --data-raw '{"quantity":"5", "medicineId":"2"}'
+    ```
 4. **View items in the cart:**
     * User could able to see all the items added in the cart
+    ```PowerShell
+    curl --location --request GET 'http://localhost:8080/api/user/item' \
+    --header 'Authorization: Basic YWRtaW46YWRtaW4=' \
+    --header 'Cookie: JSESSIONID=65A3CCC1B117B36A424F818FEF18020D'
+    ```
 5. **Checkout:**
     * Once all the items are selected user can checkout to order the items, which will deduct the amount if the money is present in the funds else user gets the error message insufficient amount, if the sufficient money is present in the funds, order must be placed successfully
 6. **Order Status:**
     * User can see the history of orders and their status like delivered, shipped, out for delivery and etc
 7. **Edit Profile:**
     * User must able to edit the profile like password, address, phone number, email id and etc
+    ```PowerShell
+    curl --location --request PUT 'http://127.0.0.1:8080/api/user/1' \
+    --header 'Content-type: application/json' \
+    --header 'Cookie: JSESSIONID=63C26CCD5120D5701988AF259613FC33' \
+    --data-raw '{"userName":"JohnDoe", "firstName":"John", "lastName":"Doe", 
+        "password":"New Password", 
+        "roles":"USER", 
+        "email": "user@email.com", "active":1, "dob": "1990-01-01", "phoneNumber": "444-4444", 
+        "address": "(201) 295-1481 549 59th St West New York, New Jersey(NJ), 07093"}'
+    ```
 8. **Funds:**
     * Funds will show the available amount to purchase the items
     * User can add money by entering the account number and amount, all the users will have some account number with balance in their dummy bank account.
     * The amount user adds will be added to the profile funds which is utilized at the time of ordering the items
 9. **Logout:**
     * Logout from the application
+    ```PowerShell
+    curl --location --request GET 'http://127.0.0.1:8080/perform_logout'
+    ```
 
 #### Points
 
