@@ -14,8 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+@Data
 @Entity
-public @Data class Medicine {
+public class Medicine {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -25,9 +26,9 @@ public @Data class Medicine {
     private String companyName;
     @Column(nullable = false)
     private BigDecimal price;
-    @Column(nullable = false)
+    @Column(name = "disease",nullable = false)
     private String disease;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    Date expirationDate;
+    private Date expirationDate;
 }

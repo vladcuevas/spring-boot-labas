@@ -19,6 +19,7 @@ import com.fsdprogram.demo.model.Employee;
 
 @RestController
 public class EmployeeController {
+    @Autowired
     private final EmployeeRepository repository;
 
     EmployeeController(EmployeeRepository repository) {
@@ -71,5 +72,10 @@ public class EmployeeController {
     @DeleteMapping("/employees/{id}")
     void deleteEmployee(@PathVariable Integer id) {
         repository.deleteById(id);
+    }
+
+    @GetMapping("/api/admin/employees/name/{name}")
+    List<Employee> findEmployeesByName(@PathVariable("name") String name) {
+        return repository.findByNameContaining(name);
     }
 }

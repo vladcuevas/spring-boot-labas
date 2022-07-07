@@ -3,6 +3,8 @@ package com.fsdprogram.demo.controllers.medicine;
 import java.net.URI;
 import java.util.List;
 
+import lombok.Data;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,12 +20,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.fsdprogram.demo.model.Medicine;
 
 @RestController
-public class MedicineController {
+public @Data class MedicineController {
     private final MedicineRepository repository;
-
-    MedicineController(MedicineRepository repository) {
-        this.repository = repository;
-    }
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -59,7 +57,7 @@ public class MedicineController {
 
     @GetMapping("/api/user/medicines/disease/{disease}")
     List<Medicine> findMedicinesByDisease(@PathVariable("disease") String disease) {
-        return repository.findByDiseaseContaining(disease);
+        return repository.findByDiseaseContainingIgnoreCase(disease);
     }
 
     @GetMapping("/api/user/medicines/name/{name}")

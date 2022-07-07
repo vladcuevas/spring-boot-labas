@@ -3,6 +3,7 @@ package com.fsdprogram.demo.model;
 import lombok.Data;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Column;
 
 @Entity
+@Table(name = "USERS")
 public @Data class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
