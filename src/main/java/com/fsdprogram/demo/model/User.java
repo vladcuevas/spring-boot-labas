@@ -23,22 +23,26 @@ public @Data class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private Long id;
     @Column(nullable = false)
-    private String userName;
-    @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
     private String lastName;
     @Column(nullable = false)
-    private String password;
+    private String userName;
     @Column(nullable = false)
-    private String roles;
+    private Boolean active;    
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private Boolean active;
+    private String gender;
+    @Column(nullable = false)
+    private String address;
+    @Column(nullable = false)
+    private String phoneNumber;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dob;
-    private String phoneNumber;
-    private String address;
+    @Column(nullable = false)
+    private String password;
+    @Column(nullable = false)
+    private String roles;
 }
