@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -40,5 +42,6 @@ public class Medicine {
     private String image;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date expirationDate;
 }

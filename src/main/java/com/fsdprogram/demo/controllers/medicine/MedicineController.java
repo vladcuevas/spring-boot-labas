@@ -73,8 +73,11 @@ public @Data class MedicineController {
                     medicine.setName(newMedicine.getName());
                     medicine.setCompanyName(newMedicine.getCompanyName());
                     medicine.setPrice(newMedicine.getPrice());
-                    medicine.setDisease(newMedicine.getDisease());
+                    medicine.setUses(newMedicine.getUses());
                     medicine.setExpirationDate(newMedicine.getExpirationDate());
+                    medicine.setDiscount(newMedicine.getDiscount());
+                    medicine.setQuantity(newMedicine.getQuantity());
+                    medicine.setDisease(newMedicine.getDisease());
                     return repository.save(medicine);
                 })
                 .orElseGet(() -> {
