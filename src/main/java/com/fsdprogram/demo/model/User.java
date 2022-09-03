@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Column;
 
 @Entity
@@ -40,6 +42,7 @@ public @Data class User {
     private String phoneNumber;
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dob;
     @Column(nullable = false)
     private String password;

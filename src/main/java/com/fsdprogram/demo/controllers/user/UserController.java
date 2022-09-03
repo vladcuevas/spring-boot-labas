@@ -60,10 +60,10 @@ public class UserController {
                     user.setFirstName(newUser.getFirstName());
                     user.setLastName(newUser.getLastName());
                     user.setEmail(newUser.getEmail());
-                    user.setPassword(newUser.getPassword());
                     user.setDob(newUser.getDob());
                     user.setPhoneNumber(newUser.getPhoneNumber());
                     user.setAddress(newUser.getAddress());
+                    user.setGender(newUser.getGender());
                     return repository.save(user);
                 })
                 .orElseGet(() -> {
