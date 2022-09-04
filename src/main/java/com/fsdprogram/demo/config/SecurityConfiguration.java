@@ -54,6 +54,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
         .and().headers().frameOptions().sameOrigin();
 
+        http.authorizeRequests().antMatchers("/perform_logout").permitAll()
+        .and().headers().frameOptions().sameOrigin();
+
         // http
         //     .logout()
         //     .logoutUrl("/perform_logout")

@@ -41,6 +41,6 @@ public class HomeController {
         if (authentication != null)
             new SecurityContextLogoutHandler().logout(request, response, authentication);
 
-        return "redirect:/login";
+        return "/";
     }
 }
