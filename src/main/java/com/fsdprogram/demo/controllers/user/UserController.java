@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fsdprogram.demo.model.QUser;
 import com.fsdprogram.demo.model.User;
 
 @RestController
@@ -30,7 +31,7 @@ public class UserController {
 
     @GetMapping("/api/admin/user")
     List<User> all() {
-        return repository.findAll();
+        return repository.findAll(QUser.user.userName.notEqualsIgnoreCase("admin"));
     }
 
     @PostMapping("/api/user")
