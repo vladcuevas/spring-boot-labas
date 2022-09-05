@@ -61,8 +61,8 @@ public @Data class MedicineController {
     }
 
     @GetMapping("/api/user/medicines/name/{name}")
-    public List<Medicine> findMedicinesByName(@PathVariable String name) {
-        return repository.findByName(name);
+    public List<Medicine> findMedicinesByName(@PathVariable("name") String name) {
+        return repository.findByNameContainingIgnoreCase(name);
     }
 
     @PutMapping("/api/admin/medicines/{id}")

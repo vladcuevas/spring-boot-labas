@@ -11,6 +11,7 @@ import com.fsdprogram.demo.model.Medicine;
 @Repository
 interface MedicineRepository extends JpaRepository<Medicine, Long> {
     List<Medicine> findByName(String name);
+    List<Medicine> findByNameContainingIgnoreCase(@Param("name") String name);
     List<Medicine> findByDiseaseContainingIgnoreCase(@Param("disease") String disease);
     List<Medicine> findByDiseaseStartingWith(String disease);
     List<Medicine> findByDiseaseLike(String disease);
