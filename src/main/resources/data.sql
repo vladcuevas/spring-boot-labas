@@ -1136,7 +1136,7 @@ values
     (
         1001,
         'Administrator',
-        'Last Name',
+        'LastName',
         'admin',
         1,
         'admin@Domain.com', 'Male',
@@ -1151,7 +1151,7 @@ insert into users (id, first_name, last_name, user_name, active, email, gender, 
 values
     (
         1002,
-        'User name',
+        'Username',
         'User Last Name',
         'user',
         1,

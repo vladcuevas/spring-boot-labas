@@ -53,6 +53,11 @@ public class UserController {
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
+    @GetMapping("/api/admin/user/name/{userName}")
+    public List<User> findUsersByName(@PathVariable("userName") String userName) {
+        return repository.findByUserNameContainingIgnoreCase(userName);
+    }
+
     @PutMapping("/api/user/{id}")
     User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
 
